@@ -1,4 +1,4 @@
-var productData =[{
+var productData = {
     "id": "1",
     "name": "Men Navy Blue Solid Sweatshirt",
     "preview": "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7579188/2018/11/5/08a7b230-ee8f-46c0-a945-4e835a3c01c01541402833619-United-Colors-of-Benetton-Men-Sweatshirts-1271541402833444-1.jpg",
@@ -20,79 +20,85 @@ var productData =[{
     "isAccessory": false,
     "brand": "United Colors of Benetton",
     "price": 2599
-  }]
-
-
-  var mainSection = document.getElementById('main');
-
-for(let i=0;i<productData.length;i++)
-{
-
-  var containerDiv = document.createElement('div');
-  containerDiv.className = 'conatainer1';
-
-
-  var previewDiv = document.createElement('div');
-  previewDiv.className = "preview";
-  var previewimg = document.createElement('img');
-  previewimg.className = "previewImg"
-  previewimg.src = productData[i].preview;
-  previewDiv.append(previewimg);
-
-  var detailsDiv = document.createElement('div');
-  detailsDiv.className = ' details';
-  var h1 = document.createElement('h1');
-  var h3a = document.createElement('h3');
-  var h3b = document.createElement('h3');
-  var h3c = document.createElement('h3');
-  var h3d= document.createElement('h3');
+  }
   
-  var h4 = document.createElement('h4');
-  h1.innerHTML = productData[i].name;
-  h3a.innerHTML = productData[i].brand;
-  h3b.innerHTML = "Price: Rs "+productData[i].brand;
-  h3c.innerHTML = "Description";
-  h4.innerHTML = productData[i].description;
-  h3d.innerHTML = "Product Preview";
-
-
-  var imagesdiv = document.createElement('div');
-  imagesdiv.className = 'images';
-  var img = document.createElement('img');
-  var img = document.createElement('img');
-  var img = document.createElement('img');
-  var img = document.createElement('img');
-  var img = document.createElement('img');
-  // for(let i=0;i<photos.length;i++)
-  // {
-  //   img.innerHTML = photos[i];
-  // }
-  imagesdiv.append(img);
-
-  var addcartdiv = document.createElement('div');
-  addcartdiv.className = 'addcart';
-  var anchor = document.createElement('a');
-  anchor.href= "#";
-  anchor.innerHTML = "ADD Cart";
-  addcartdiv.append(anchor);
-  detailsDiv.append(addcartdiv);
+  const lists = document.getElementById("lists");
+    const outputImg = document.getElementById("outputimg");
+    const heading = document.getElementById("heading");
   
-
-  detailsDiv.append(h1);
-  detailsDiv.append(h3a);
-  detailsDiv.append(h3b);
-  detailsDiv.append(h3c);
-  detailsDiv.append(h4);
-  detailsDiv.append(h3d);
-
-
-  containerDiv.append(previewDiv);
-  containerDiv.append(detailsDiv);
-  containerDiv.append(addcartdiv);
-
-
-
-  mainSection.append(containerDiv);
+    
+    outputImg.setAttribute("src", productData.photos[0]);
   
-}
+  
+     var detailsDiv =document.createElement('div');
+    detailsDiv.className = ' details';
+    var h1 = document.createElement('h1');
+    var h3a = document.createElement('h3');
+    var h3b = document.createElement('h3');
+    var h3c = document.createElement('h3');
+    var h3d= document.createElement('h3');
+    var h4 = document.createElement('h4');
+  
+    h1.innerHTML = productData.name;
+    h3a.innerHTML = productData.brand;
+    h3b.innerHTML = "Price: Rs "+productData.brand;
+    h3c.innerHTML = "Description";
+    h4.innerHTML = productData.description;
+    h3d.innerHTML = "Product Preview";
+  
+    heading.append(h1);
+    heading.append(h3a);
+    heading.append(h3b);
+    heading.append(h3c);
+    heading.append(h4);
+    heading.append(h3d);
+  
+    main.append(detailsDiv)
+    
+  
+    let output = " ";
+    // let pics = productData.photos;
+  
+    // for (let i = 0; i < pics.length; i++) {
+    //   if (i === 0) {
+    //     output += `<div class="list active">
+    //       <img src= ${pics[i]}>
+    //       </div>`;
+    //   } else {
+    //     output += `<div class="list">
+    //       <img src= ${pics[i]} click(changeImage(${pics[i]}))>
+    //       </div>`;
+    //   }
+    // }
+  
+    // lists.innerHTML = output;
+  
+    // lists.addEventListener("click", (e) => {
+    //   let targetSRC = e.target.getAttribute("src");
+    //   // console.log(target.getAttribute('src'))
+    //   outputimg.setAttribute("src", targetSRC);
+    // });
 
+    let pics = productData.photos;
+    for (let i = 0; i < pics.length; i++) {
+  
+      const imgE1 = document.createElement('img');
+      imgE1.classList.add('item');
+      imgE1.setAttribute('src',pics[i]);
+      
+      if (i === 0) {
+        imgE1.classList.add('active');
+      } 
+  
+      imgE1.addEventListener('click',(e) =>
+      {
+        let targetSRC =e.target.getAttribute('src');
+        outputImg.setAttribute('src',targetSRC);
+  
+        let activeImg = document.querySelector('img.active');
+        activeImg.classList.remove('active');
+        e.target.classList.add('active')
+      })
+  
+      lists.appendChild(imgE1);
+    }
