@@ -41,7 +41,7 @@ var productData = {
   
     h1.innerHTML = productData.name;
     h3a.innerHTML = productData.brand;
-    h3b.innerHTML = "Price: Rs "+productData.brand;
+    h3b.innerHTML = "Price: Rs "+productData.price;
     h3c.innerHTML = "Description";
     h4.innerHTML = productData.description;
     h3d.innerHTML = "Product Preview";
