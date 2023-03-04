@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis&family=Montserrat:wght@200;300;400;600&family=Open+Sans&family=Quicksand:wght@600&display=swap" rel="stylesheet">
     <title>JS Assignment2</title>
     <script src="https://kit.fontawesome.com/021c70449c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
@@ -26,7 +29,7 @@
     </header>
     <main id="main" >
         
-        <div class="preview" ><img id="preview" src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7579188/2018/11/5/08a7b230-ee8f-46c0-a945-4e835a3c01c01541402833619-United-Colors-of-Benetton-Men-Sweatshirts-1271541402833444-1.jpg" alt=""></div>
+        <!-- <div class="preview" ><img id="preview" src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7579188/2018/11/5/08a7b230-ee8f-46c0-a945-4e835a3c01c01541402833619-United-Colors-of-Benetton-Men-Sweatshirts-1271541402833444-1.jpg" alt=""></div>
         <div class="details">
             <h1>Men Navy Blue Solid Sweatshirt</h1>
             <h3>United Colors of Benetton</h3>
@@ -45,14 +48,23 @@
             </div>
             <div class="addcart"><a href="#">Add Cart</a></div>
 
-        </div> 
+        </div>  -->
+        <div class="output-outer" id="output">
+            <img src="" id="outputimg" />
+          </div>
+          <div class="lists">
+            <div id="heading" class="heading">
+
+            </div>
+            <div class="list" id="lists"></div>
+          </div>
     
     </main>
-    <script >
-        function changeImage(fileName){
-            let img = document.querySelector('#preview');
-            img.setAttribute("src",fileName);
-        }
+    <script src="script.js" >
+        // function changeImage(fileName){
+        //     let img = document.querySelector('#preview');
+        //     img.setAttribute("src",fileName);
+        // }
        
     </script>
 </body>
